@@ -125,10 +125,10 @@ BUILD_DIR="./build/"
 if [ $CLEAN = yes ] ; then
 	echo "Cleaning: $BUILD_DIR"
 	rm -f -r $PROGDIR/$BUILD_DIR
-	
+
 	echo "Cleaning: $BOOST_DIR"
 	rm -f -r $PROGDIR/$BOOST_DIR
-	
+
 	echo "Cleaning: $BOOST_TAR"
 	rm -f $PROGDIR/$BOOST_TAR
 
@@ -321,7 +321,7 @@ then
   # Make the initial bootstrap
   echo "Performing boost bootstrap"
 
-  cd $BOOST_DIR 
+  cd $BOOST_DIR
   case "$HOST_OS" in
     windows)
         cmd //c "bootstrap.bat" 2>&1 | tee -a $PROGDIR/build.log
@@ -336,7 +336,7 @@ then
   	exit 1
   fi
   cd $PROGDIR
-  
+
   # -------------------------------------------------------------
   # Patching will be done only if we had a successfull bootstrap!
   # -------------------------------------------------------------
@@ -402,7 +402,7 @@ echo "Building boost for android"
          $cxxflags                    \
          link=static                  \
          threading=multi              \
-         --layout=versioned           \
+         --layout=system              \
          --prefix="./../$BUILD_DIR/"  \
          $LIBRARIES                   \
          install 2>&1                 \
